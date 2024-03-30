@@ -4,6 +4,9 @@ import "./globals.css";
 import clsx from "clsx";
 import { createClient } from "@/prismicio";
 
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+
 const nunito = Nunito({
   subsets: ['latin'],
   display: 'swap',
@@ -21,13 +24,13 @@ export async function generateMetadata(
  
   const client = createClient();
 
-  const page = await client.getSingle("settings");
+  const settings = await client.getSingle("settings");
 
   return {
-    title: page.data.site_title || "Flowrise Fallback",
-    description: page.data.meta_description || "Flowrise is the ...",
+    title: settings.data.site_title || "Flowrise Fallback",
+    description: settings.data.meta_description || "Flowrise is the ...",
     openGraph: {
-      images: [page.data.og_image.url || ""],
+      images: [settings.data.og_image.url || ""],
     },
   }
 }
@@ -40,9 +43,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(nunito.variable, nunitoSans.variable)}>
-        <header>Header!</header>
+        <Header />
         {children}
-        <footer>Footer!</footer>
+        <Footer />
         </body>
     </html>
   );
