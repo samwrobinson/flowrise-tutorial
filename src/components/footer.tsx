@@ -9,7 +9,7 @@ export default async function Footer() {
     const settings = await client.getSingle("settings");
 
     return (
-        <Bounded as="footer">
+        <Bounded as="footer" className="py-4 md:py-6 lg:py-4 bg-slate-400 bg-opacity-30 sticky bottom-0 z-10">
             <div className="flex gap-6 item-center justify-between sm:flex-row flex-col">
                 <Link href="/">
                     <Logo />

@@ -11,8 +11,8 @@ const components: JSXMapSerializer = {
   heading1: ({children})=>(
     <Heading as="h1" size="xl" className="md:mb- mb-4 mt-12 fist:mt-0 last:mb-0">{children}</Heading>
      ),
-     paragraph: ({children}) => (<p className="text-2xl font-normal
-      leading-10 font-body text-slate-600 mb-4 md:mb-8 max-w-md">{children}</p>),
+     paragraph: ({children}) => (<p className="md:text-2xl font-normal
+      md:leading-10 text-teal-50 mb-4 md:mb-8 md:max-w-md">{children}</p>),
 };
 
 /**
@@ -54,12 +54,41 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       </Bounded>
       )}
 
+    {slice.variation === "full" && (
+        <div className=" flex h-screen w-screen relative"
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+        >
+            <div className="flex flex-col h-1/2 md:h-4/5 w-1/3 mr-auto ml-auto align-middle justify-center text-left font mb-2.5">
+              <PrismicRichText field={slice.primary.heading} components={components} />
+              <PrismicRichText field={slice.primary.body} components={components} />
+            </div>
+            <PrismicNextImage field={slice.primary.image} className="absolute top-0 left-0 h-full w-full object-cover -z-10" />
+        </div>
+      )}
+
+    {slice.variation === "narrow" && (
+        <Bounded className="flex h-2/3 w-screen relative mt-1.5 mb-1.5"
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+        >
+            <div className="flex flex-col h-full w-1/3 mr-auto ml-auto align-middle justify-center text-left font mb-2.5">
+              <PrismicRichText field={slice.primary.heading} components={components} />
+              <PrismicRichText field={slice.primary.body} components={components} />
+              <Button className="h-fit w-fit mb-8 md:mb-20" field={slice.primary.button_link}>
+              {slice.primary.button_text}
+            </Button>
+            </div>
+            <PrismicNextImage field={slice.primary.image} className="absolute top-0 left-0 h-full w-full object-cover -z-10" />
+        </Bounded>
+      )}
+
     {slice.variation === "horizontal" && (
       <Bounded
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 place-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 place-items-center mb-10">
 
           <div className="grid-rows-[1fr,auto,auto] gap-8 h-fit">
             <PrismicRichText field={slice.primary.heading}

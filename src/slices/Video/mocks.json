@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"mission": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Elit elit elit aliqua amet qui officia. Incididunt mollit irure dolor tempor cupidatat labore est commodo tempor. Veniam culpa ullamco cillum reprehenderit ullamco enim sint in aliqua ex id officia eiusmod nulla amet."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
