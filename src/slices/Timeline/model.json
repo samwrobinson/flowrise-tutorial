@@ -1,0 +1,43 @@
+{
+  "id": "timeline",
+  "type": "SharedSlice",
+  "name": "Timeline",
+  "description": "Timeline",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "event_photo": {
+          "type": "Image",
+          "config": {
+            "label": "Event Photo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "event_title": {
+          "type": "Text",
+          "config": {
+            "label": "Event Title",
+            "placeholder": ""
+          }
+        },
+        "event_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Event Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

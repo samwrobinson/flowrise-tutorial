@@ -68,7 +68,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       )}
 
     {slice.variation === "narrow" && (
-        <Bounded className="flex h-2/3 w-screen relative mt-1.5 mb-1.5"
+        <Bounded className="flex h-2/3 w-screen relative mt-3.5 mb-3.5"
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
         >
