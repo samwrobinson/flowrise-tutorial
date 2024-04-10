@@ -20,11 +20,50 @@
             "thumbnails": []
           }
         },
-        "event_title": {
-          "type": "Text",
+        "heading": {
+          "type": "StructuredText",
           "config": {
-            "label": "Event Title",
-            "placeholder": ""
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3"
+          }
+        },
+        "event_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Event Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "reverse",
+      "name": "Reverse",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "event_photo": {
+          "type": "Image",
+          "config": {
+            "label": "Event Photo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3"
           }
         },
         "event_description": {

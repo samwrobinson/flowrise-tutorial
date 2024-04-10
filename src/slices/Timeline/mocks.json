@@ -26,11 +26,6 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"event_title": {
-				"__TYPE__": "FieldContent",
-				"value": "flame",
-				"type": "Text"
-			},
 			"event_description": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -41,8 +36,76 @@
 						}
 					}
 				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Began"
+						}
+					}
+				]
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "reverse",
+		"primary": {
+			"event_photo": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+					"width": 3648,
+					"height": 4560
+				},
+				"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+				"width": 3648,
+				"height": 4560,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Printed"
+						}
+					}
+				]
+			},
+			"event_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis laborum enim adipisicing incididunt dolor elit minim enim sit esse reprehenderit. Mollit ea ad commodo laborum dolore eiusmod incididunt ad."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

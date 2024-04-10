@@ -797,14 +797,14 @@ export interface TimelineSliceDefaultPrimary {
   event_photo: prismic.ImageField<never>;
 
   /**
-   * Event Title field in *Timeline → Primary*
+   * Heading field in *Timeline → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: timeline.primary.event_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: timeline.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  event_title: prismic.KeyTextField;
+  heading: prismic.RichTextField;
 
   /**
    * Event Description field in *Timeline → Primary*
@@ -831,9 +831,57 @@ export type TimelineSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Timeline → Primary*
+ */
+export interface TimelineSliceReversePrimary {
+  /**
+   * Event Photo field in *Timeline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.primary.event_photo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  event_photo: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *Timeline → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Event Description field in *Timeline → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.primary.event_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_description: prismic.RichTextField;
+}
+
+/**
+ * Reverse variation for Timeline Slice
+ *
+ * - **API ID**: `reverse`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TimelineSliceReverse = prismic.SharedSliceVariation<
+  "reverse",
+  Simplify<TimelineSliceReversePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Timeline*
  */
-type TimelineSliceVariation = TimelineSliceDefault;
+type TimelineSliceVariation = TimelineSliceDefault | TimelineSliceReverse;
 
 /**
  * Timeline Shared Slice
@@ -936,8 +984,10 @@ declare module "@prismicio/client" {
       TestimonialsSliceDefault,
       TimelineSlice,
       TimelineSliceDefaultPrimary,
+      TimelineSliceReversePrimary,
       TimelineSliceVariation,
       TimelineSliceDefault,
+      TimelineSliceReverse,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
