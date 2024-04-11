@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-slate-300">
+    <html lang="en" className="bg-slate-200">
       <body className={clsx(montserrat)}>
         <Header />
         {children}

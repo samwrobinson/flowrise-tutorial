@@ -3,6 +3,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import Bounded from "./Bounded";
 import Logo from "./Logo";
+import NavHeading from "./NavHeading";
 
 export default async function Footer() {
     const client = createClient();
@@ -12,14 +13,14 @@ export default async function Footer() {
         <Bounded as="footer" className="py-4 md:py-6 lg:py-4 bg-slate-400 bg-opacity-30 sticky bottom-0 z-10">
             <div className="flex gap-6 item-center justify-between sm:flex-row flex-col">
                 <Link href="/">
-                    <Logo />
+                    <NavHeading>MIRON GOLFMAN</NavHeading>
                 </Link>
                 <p className="text-xs">© {new Date().getFullYear()} {settings.data.site_title}</p>
                 <ul className="flex">
                 {settings.data.navigation.map(({link, label})=>(
-                    <li key={label}>
+                    <NavHeading key={label}>
                         <PrismicNextLink field={link} className="p-3">{label}</PrismicNextLink>
-                    </li>
+                    </NavHeading>
                 ))}
                 </ul>
             </div>

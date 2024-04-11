@@ -879,9 +879,50 @@ export type TimelineSliceReverse = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Timeline → Primary*
+ */
+export interface TimelineSliceTimelineHeaderPrimary {
+  /**
+   * Heading field in *Timeline → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Event Description field in *Timeline → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.primary.event_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_description: prismic.RichTextField;
+}
+
+/**
+ * Timeline Header variation for Timeline Slice
+ *
+ * - **API ID**: `timelineHeader`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TimelineSliceTimelineHeader = prismic.SharedSliceVariation<
+  "timelineHeader",
+  Simplify<TimelineSliceTimelineHeaderPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Timeline*
  */
-type TimelineSliceVariation = TimelineSliceDefault | TimelineSliceReverse;
+type TimelineSliceVariation =
+  | TimelineSliceDefault
+  | TimelineSliceReverse
+  | TimelineSliceTimelineHeader;
 
 /**
  * Timeline Shared Slice
@@ -985,9 +1026,11 @@ declare module "@prismicio/client" {
       TimelineSlice,
       TimelineSliceDefaultPrimary,
       TimelineSliceReversePrimary,
+      TimelineSliceTimelineHeaderPrimary,
       TimelineSliceVariation,
       TimelineSliceDefault,
       TimelineSliceReverse,
+      TimelineSliceTimelineHeader,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
