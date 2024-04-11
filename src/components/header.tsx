@@ -9,9 +9,11 @@ export default async function Header() {
     const client = createClient();
     const settings = await client.getSingle("settings");
 
+    
+
     return (
     <Bounded as="header" className="py-9 md:py-6 lg:py-7 bg-slate-400 bg-opacity-30 sticky top-0 z-10">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center flex-col md:flex-row justify-between">
             <Link href="/">
                 <NavHeading className="border-y-2 border-transparent hover:border-y-slate-50 py-2">MIRON GOLFMAN</NavHeading>
             </Link>
