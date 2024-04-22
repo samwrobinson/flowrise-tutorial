@@ -60,13 +60,13 @@ const Gallery = async ({ slice }: GalleryProps): Promise <JSX.Element> => {
 
       <div className="grid grid-cols-4 grid-flow-row">
         {galleryItems.map((item, index) => (
-          <a data-fslightbox href={item?.data.image.url} key={index}>
+          <div key={index}>
               <PrismicNextImage width={200} height={200}
               field={item?.data.image}
               data-src={item?.data.image.id}
               className="shadow-lg shadow-slate-800 rounded-lg transform transition duration-300 ease-in-out hover:scale-105 hover:border-2 hover:border-slate-100"
               imgixParams={{ar: "1:1", fit: "crop"}} />
-          </a>
+          </div>
         ))}
       </div>
     </Bounded>
