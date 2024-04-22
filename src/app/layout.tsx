@@ -45,7 +45,6 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-        <script src="fslightbox.js"></script>
         </body>
     </html>
   );

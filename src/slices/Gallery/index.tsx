@@ -69,7 +69,6 @@ const Gallery = async ({ slice }: GalleryProps): Promise <JSX.Element> => {
           </a>
         ))}
       </div>
-      <script src=""></script>
     </Bounded>
 
     
