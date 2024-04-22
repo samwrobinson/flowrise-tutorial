@@ -2,9 +2,6 @@ import { Content, isFilled } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
-import { Fancybox } from "@fancyapps/ui";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 
@@ -49,28 +46,6 @@ const Gallery = async ({ slice }: GalleryProps): Promise <JSX.Element> => {
       }
     })
   )
-
-  
-  Fancybox.bind('[data-fancybox="gallery"]', {
-    
-    groupAll: true,
-
-    hideScrollbar: false,
-
-    closeButton: true,
-
-    Carousel: {
-      Navigation: true,
-      transition: "slide",
-    },
-    Toolbar: {
-      display: {
-        left: [],
-        middle: ["prev", "infobar", "next"],
-        right: ["close"]
-      }
-    },
-  });
   
 
   return (
@@ -85,17 +60,19 @@ const Gallery = async ({ slice }: GalleryProps): Promise <JSX.Element> => {
 
       <div className="grid grid-cols-4 grid-flow-row">
         {galleryItems.map((item, index) => (
-          <div key={index}>
-            <PrismicNextImage width={200} height={200}
-            field={item?.data.image}
-            data-src={item?.data.image.url}
-            className="shadow-lg shadow-slate-800 rounded-lg transform transition duration-300 ease-in-out hover:scale-105 hover:border-2 hover:border-slate-100"
-            imgixParams={{ar: "1:1", fit: "crop"}} />
-          </div>
+          <a data-fslightbox href={item?.data.image.url} key={index}>
+              <PrismicNextImage width={200} height={200}
+              field={item?.data.image}
+              data-src={item?.data.image.id}
+              className="shadow-lg shadow-slate-800 rounded-lg transform transition duration-300 ease-in-out hover:scale-105 hover:border-2 hover:border-slate-100"
+              imgixParams={{ar: "1:1", fit: "crop"}} />
+          </a>
         ))}
       </div>
-
+      <script src=""></script>
     </Bounded>
+
+    
   );
 };
 
