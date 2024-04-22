@@ -68,7 +68,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       )}
 
     {slice.variation === "narrow" && (
-        <Bounded className="flex h-2/3 w-screen relative mt-3.5 mb-3.5"
+        <Bounded className="flex h-2/3 w-screen relative mt-3.5"
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
         >
@@ -87,10 +87,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <Bounded
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
+        className="shadow-slate-400 bg-gradient-to-b from-slate-300 to-slate-500"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center mb-10">
 
-          <div className="grid-rows-[1fr,auto,auto] gap-8 h-fit">
+          <div className="flex flex-col h-full w-2/3 mr-auto ml-auto align-middle justify-center text-left">
             <PrismicRichText field={slice.primary.heading}
             components={components}/>
             <PrismicRichText field={slice.primary.body}
@@ -103,7 +104,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             </Button>
           </div>
           <PrismicNextImage field={slice.primary.image}
-          className="drop-shadow-xl max-w-4xl w-full"
+          className="drop-shadow-xl shadow-slate-700 max-w-4xl w-full"
           />
         </div>
 

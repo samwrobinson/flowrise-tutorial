@@ -55,7 +55,7 @@ const Timeline = ({ slice }: TimelineProps): JSX.Element => {
   <div
     data-slice-type={slice.slice_type}
     data-slice-variation={slice.variation}
-    className="grid md:grid-cols-2 h-4/5 -z-50 bg-gradient-to-r from-slate-200 to-slate-400"
+    className="grid md:grid-cols-2 h-4/5 bg-gradient-to-r from-slate-200 to-slate-400"
   >
     <div className="w-auto md:border-r-8 border-slate-500 max-w-screen-lg relative z-10">
       <div className="absolute md:right-0 md:top-1/2 md:h-0.5 md:w-1/2 md:bg-slate-500 overflow-x-hidden -z-10"></div>

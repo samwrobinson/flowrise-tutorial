@@ -35,10 +35,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-slate-400">
+      <head>
+      <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+      </head>
       <body className={clsx(montserrat)}>
         <Header />
         {children}
         <Footer />
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
         </body>
     </html>
   );

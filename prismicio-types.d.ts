@@ -69,7 +69,40 @@ export type FlowriseDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Gallery documents
+ */
+interface GalleryDocumentData {
+  /**
+   * image field in *Gallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Gallery document from Prismic
+ *
+ * - **API ID**: `gallery`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<GalleryDocumentData>,
+    "gallery",
+    Lang
+  >;
+
 type HomepageDocumentDataSlicesSlice =
+  | GallerySlice
   | VideoSlice
   | TestimonialsSlice
   | FeaturesSlice
@@ -149,7 +182,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = TimelineSlice | HeroSlice;
+type PageDocumentDataSlicesSlice = GallerySlice | TimelineSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -367,6 +400,7 @@ export type TestimonialDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | FlowriseDocument
+  | GalleryDocument
   | HomepageDocument
   | PageDocument
   | SettingsDocument
@@ -450,6 +484,66 @@ type FeaturesSliceVariation = FeaturesSliceDefault;
 export type FeaturesSlice = prismic.SharedSlice<
   "features",
   FeaturesSliceVariation
+>;
+
+/**
+ * Primary content in *Gallery → Primary*
+ */
+export interface GallerySliceDefaultPrimary {
+  /**
+   * Heading field in *Gallery → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Gallery → Items*
+ */
+export interface GallerySliceDefaultItem {
+  /**
+   * Gallery Image field in *Gallery → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].gallery_image
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  gallery_image: prismic.ContentRelationshipField<"gallery">;
+}
+
+/**
+ * Default variation for Gallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GallerySliceDefaultPrimary>,
+  Simplify<GallerySliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Gallery*
+ */
+type GallerySliceVariation = GallerySliceDefault;
+
+/**
+ * Gallery Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: Gallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySlice = prismic.SharedSlice<
+  "gallery",
+  GallerySliceVariation
 >;
 
 /**
@@ -991,6 +1085,8 @@ declare module "@prismicio/client" {
       FlowriseDocument,
       FlowriseDocumentData,
       FlowriseDocumentDataSlicesSlice,
+      GalleryDocument,
+      GalleryDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -1008,6 +1104,11 @@ declare module "@prismicio/client" {
       FeaturesSliceDefaultItem,
       FeaturesSliceVariation,
       FeaturesSliceDefault,
+      GallerySlice,
+      GallerySliceDefaultPrimary,
+      GallerySliceDefaultItem,
+      GallerySliceVariation,
+      GallerySliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceHorizontalPrimary,
